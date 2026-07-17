@@ -10,7 +10,7 @@
 //! });
 //! ```
 
-use egui::{pos2, vec2, FontId, Id, Rect, Sense, Ui};
+use egui::{AsId, FontId, Id, Rect, Sense, Ui, pos2, vec2};
 use egui_components_theme::Theme;
 
 use crate::icon::{paint_icon, IconKind};
@@ -23,7 +23,7 @@ pub struct Accordion<'a> {
 }
 
 impl<'a> Accordion<'a> {
-    pub fn new(id_salt: impl std::hash::Hash, title: impl Into<String>) -> Self {
+    pub fn new(id_salt: impl AsId, title: impl Into<String>) -> Self {
         Self {
             id: Id::new(id_salt),
             title: title.into(),

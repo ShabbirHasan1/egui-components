@@ -14,7 +14,7 @@
 //! );
 //! ```
 
-use egui::{vec2, Id, Rect, Sense, Ui};
+use egui::{AsId, Id, Rect, Sense, Ui, vec2};
 use egui_components_theme::Theme;
 
 use crate::icon::{paint_icon, IconKind};
@@ -26,7 +26,7 @@ pub struct Collapsible<'a> {
 }
 
 impl<'a> Collapsible<'a> {
-    pub fn new(id_salt: impl std::hash::Hash) -> Self {
+    pub fn new(id_salt: impl AsId) -> Self {
         Self {
             id: Id::new(id_salt),
             default_open: false,

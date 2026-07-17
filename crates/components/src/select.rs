@@ -16,7 +16,7 @@
 //! a filter field at the top of the dropdown.
 
 use egui::{
-    pos2, vec2, Frame, Id, Margin, Response, Sense, Stroke, Ui,
+    AsId, Frame, Id, Margin, Response, Sense, Stroke, Ui, pos2, vec2,
 };
 use egui_components_theme::{mix, Theme};
 
@@ -37,7 +37,7 @@ pub struct Select<'a> {
 }
 
 impl<'a> Select<'a> {
-    pub fn new(id_salt: impl std::hash::Hash, selected: &'a mut Option<usize>) -> Self {
+    pub fn new(id_salt: impl AsId, selected: &'a mut Option<usize>) -> Self {
         Self {
             id_salt: Id::new(id_salt),
             selected,
@@ -52,7 +52,7 @@ impl<'a> Select<'a> {
     }
 
     /// Shorthand for a searchable select (combobox).
-    pub fn combobox(id_salt: impl std::hash::Hash, selected: &'a mut Option<usize>) -> Self {
+    pub fn combobox(id_salt: impl AsId, selected: &'a mut Option<usize>) -> Self {
         Self::new(id_salt, selected).searchable()
     }
 

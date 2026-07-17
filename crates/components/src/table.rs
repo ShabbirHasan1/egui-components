@@ -46,7 +46,7 @@
 //!     });
 //! ```
 
-use egui::{Align, Frame, Layout, Response, Sense, Stroke, Ui, WidgetText};
+use egui::{Align, AsId, Frame, Layout, Response, Sense, Stroke, Ui, WidgetText};
 use egui_components_theme::Theme;
 
 pub use egui_extras::Column;
@@ -153,7 +153,7 @@ pub struct Table {
 impl Table {
     /// Create a table. `id_salt` is hashed into the inner table/scroll-area id
     /// so several tables can live on the same page without colliding.
-    pub fn new(id_salt: impl std::hash::Hash) -> Self {
+    pub fn new(id_salt: impl AsId) -> Self {
         Self {
             id_salt: egui::Id::new(id_salt),
             columns: Vec::new(),

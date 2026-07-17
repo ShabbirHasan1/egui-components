@@ -135,7 +135,7 @@ impl eframe::App for DemoApp {
                     .inner_margin(egui::Margin::symmetric(16, 12))
                     .stroke(theme.border_stroke()),
             )
-            .show_inside(ui, |ui| {
+            .show(ui, |ui| {
                 ui.horizontal(|ui| {
                     ui.add(
                         sc::Label::new("egui-components")
@@ -205,7 +205,7 @@ impl eframe::App for DemoApp {
                     .fill(theme.colors.background)
                     .inner_margin(egui::Margin::same(20)),
             )
-            .show_inside(ui, |ui| {
+            .show(ui, |ui| {
                 egui::ScrollArea::vertical().show(ui, |ui| {
                     self.demo_sections(ui);
                 });

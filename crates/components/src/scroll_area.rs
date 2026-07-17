@@ -20,7 +20,7 @@
 //! ```
 
 use egui::scroll_area::ScrollAreaOutput;
-use egui::{Ui, Vec2b};
+use egui::{AsId, Ui, Vec2b};
 use egui_components_theme::Theme;
 
 /// A scrollable region with themed scroll bars.
@@ -53,7 +53,7 @@ impl ScrollArea {
     }
 
     /// Stable id source so scroll offset survives across frames / siblings.
-    pub fn id_salt(mut self, id_salt: impl std::hash::Hash) -> Self {
+    pub fn id_salt(mut self, id_salt: impl AsId) -> Self {
         self.inner = self.inner.id_salt(id_salt);
         self
     }

@@ -12,7 +12,7 @@
 //! });
 //! ```
 
-use egui::{Frame, Id, InnerResponse, Margin, Response, Ui};
+use egui::{AsId, Frame, Id, InnerResponse, Margin, Response, Ui};
 use egui_components_theme::Theme;
 
 pub struct Popover {
@@ -23,7 +23,7 @@ pub struct Popover {
 }
 
 impl Popover {
-    pub fn new(id_salt: impl std::hash::Hash) -> Self {
+    pub fn new(id_salt: impl AsId) -> Self {
         Self {
             id: Id::new(id_salt),
             width: None,

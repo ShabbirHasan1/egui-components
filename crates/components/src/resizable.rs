@@ -10,7 +10,7 @@
 //!     .show(ui, |ui| { ui.label("left"); }, |ui| { ui.label("right"); });
 //! ```
 
-use egui::{pos2, Id, Rect, Sense, Ui, UiBuilder};
+use egui::{AsId, Id, Rect, Sense, Ui, UiBuilder, pos2};
 use egui_components_theme::{mix, Theme};
 
 pub struct Resizable {
@@ -23,7 +23,7 @@ pub struct Resizable {
 }
 
 impl Resizable {
-    pub fn new(id_salt: impl std::hash::Hash) -> Self {
+    pub fn new(id_salt: impl AsId) -> Self {
         Self {
             id: Id::new(id_salt),
             vertical: false,

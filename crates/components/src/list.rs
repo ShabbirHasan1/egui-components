@@ -22,8 +22,7 @@
 //! rounded frame.
 
 use egui::{
-    pos2, vec2, Color32, FontId, Frame, InnerResponse, Margin, Response, Sense, Stroke, Ui,
-    Vec2, Widget, WidgetText,
+    AsId, Color32, FontId, Frame, InnerResponse, Margin, Response, Sense, Stroke, Ui, Vec2, Widget, WidgetText, pos2, vec2,
 };
 use egui_components_theme::{mix, Theme};
 
@@ -202,7 +201,7 @@ pub struct List {
 impl List {
     /// Create a list. `id_source` is hashed into the inner [`ScrollArea`]'s id
     /// so multiple `List`s on the same page can coexist without colliding.
-    pub fn new(id_source: impl std::hash::Hash) -> Self {
+    pub fn new(id_source: impl AsId) -> Self {
         Self {
             id_salt: egui::Id::new(id_source),
             max_height: None,

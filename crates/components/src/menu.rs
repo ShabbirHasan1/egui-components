@@ -17,7 +17,7 @@
 //! }
 //! ```
 
-use egui::{vec2, Frame, Id, Margin, Rect, Response, Sense, Ui};
+use egui::{AsId, Frame, Id, Margin, Rect, Response, Sense, Ui, vec2};
 use egui_components_theme::{mix, Theme};
 
 use crate::icon::{paint_icon, IconKind};
@@ -41,7 +41,7 @@ pub struct Menu {
 }
 
 impl Menu {
-    pub fn new(id_salt: impl std::hash::Hash) -> Self {
+    pub fn new(id_salt: impl AsId) -> Self {
         Self {
             id: Id::new(id_salt),
             entries: Vec::new(),
